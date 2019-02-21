@@ -19,17 +19,20 @@
 	</properties>
 
 	<dependencies>
+		<!-- spring boot启动 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
+		<!-- spring boot支持junit测试 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		
+		<!-- spring boot整合spring boot admin,对spring boot项目进行监控，该依赖属于监控服务端，版本号和被监控端要一致 -->
 		<dependency>
 			<groupId>de.codecentric</groupId>
 			<artifactId>spring-boot-admin-starter-server</artifactId>
