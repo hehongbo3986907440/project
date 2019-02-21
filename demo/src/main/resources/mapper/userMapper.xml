@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.UserMapper">
+	<select id="getUsers" resultType="com.example.demo.vo.Users">
+		select t.login_name name from T_B_USER t 
+	</select>
+	
+	<insert id="insertUser" parameterType="com.example.demo.vo.Users">
+		insert into t_b_User (id,Login_Name,Login_Pass) values (#{id},#{name},'123')
+	</insert>
+</mapper>
