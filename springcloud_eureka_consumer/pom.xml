@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>springcloud_eureka_node2</artifactId>
+	<artifactId>springcloud_eureka_consumer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo_client</name>
 	<description>Demo project for Spring Boot</description>
@@ -71,6 +71,11 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
+		<!-- feign调用服务依赖 -->
+		<dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-feign</artifactId>
+        </dependency>
 	</dependencies>
 
 	
