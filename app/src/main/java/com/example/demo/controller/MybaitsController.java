@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,7 @@ import com.example.demo.service.IMybaitsService;
 import com.example.demo.vo.ImageDO;
 import com.example.demo.vo.Users;
 
+//@CrossOrigin//跨域请求注解
 @RestController
 @RequestMapping("/mybatis")
 public class MybaitsController {
@@ -70,7 +72,7 @@ public class MybaitsController {
 		
 		
 		ImageDO image5 = new ImageDO();
-		image5.setId(3);
+		image5.setId(5);
 		image5.setTitle("mdkadmad");
 		image5.setUrl("http://img1.cache.hxsd.com/hxsdmy/gallery/2013/01/87/81/91/03/08/134035862/12737_4_026a.jpg");
 		image5.setDesrc("就打击打击的就ok佛开，口服抗。，可大颗大颗大大的数据库大大肯德基啊");
