@@ -1,6 +1,9 @@
 package com.example.demo.thread.lock;
 
 import java.util.LinkedList;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -110,11 +113,15 @@ public class LockDemoTest {
 
     public static void main(String[] args){
         LockDemoTest data = new LockDemoTest();
+        ExecutorService executorService = Executors.newFixedThreadPool(10);
+
         for(int i=0;i<5;i++){
-            new Thread(data.new Producer(data,"生产者"+i)).start();
+            executorService.execute(data.new Producer(data,"生产者"+i));
+//            new Thread(data.new Producer(data,"生产者"+i)).start();
         }
         for(int i=0;i<5;i++){
-            new Thread(data.new Consumer(data,"消费者"+i)).start();
+            executorService.execute(data.new Consumer(data,"消费者"+i));
+//            new Thread(data.new Consumer(data,"消费者"+i)).start();
         }
     }
 }
