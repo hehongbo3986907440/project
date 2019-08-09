@@ -20,7 +20,7 @@ import org.springframework.stereotype.Component;
  * @Exchange value:为交换器起个名称 type:指定具体的交换器类型
  */
 @Component
-@RabbitListener(bindings = @QueueBinding(key = "${mq.config.queue.info.routing.key}", exchange = @Exchange(value = "${mq.config.exchange}", type = ExchangeTypes.DIRECT), value = @Queue(value = "${mq.config.queue.info}", autoDelete = "true")))
+//@RabbitListener(bindings = @QueueBinding(key = "${mq.config.queue.info.routing.key}", exchange = @Exchange(value = "${mq.config.exchange}", type = ExchangeTypes.DIRECT), value = @Queue(value = "${mq.config.queue.info}", autoDelete = "true")))
 public class Receiver1ByDirect {
 	@RabbitHandler
 	public void process(String mes) {

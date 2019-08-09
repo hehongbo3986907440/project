@@ -9,7 +9,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(bindings=@QueueBinding(value=@Queue(value="${mq.config.queue.topic.info}",autoDelete="true"),exchange=@Exchange(type=ExchangeTypes.TOPIC,value="${mq.config.topic.exchange}"),key="*.log.info"))
+//@RabbitListener(bindings=@QueueBinding(value=@Queue(value="${mq.config.queue.topic.info}",autoDelete="true"),exchange=@Exchange(type=ExchangeTypes.TOPIC,value="${mq.config.topic.exchange}"),key="*.log.info"))
 public class ReceiverAByTopic {
 	@RabbitHandler
 	public void process(String mes){

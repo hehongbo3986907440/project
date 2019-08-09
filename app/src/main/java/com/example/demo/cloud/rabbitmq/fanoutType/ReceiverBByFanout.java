@@ -9,7 +9,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 
 @Component
-@RabbitListener(bindings=@QueueBinding(value=@Queue(value="${mq.config.queue.fanout.push}",autoDelete="true"),exchange=@Exchange(type=ExchangeTypes.FANOUT,value="${mq.config.fanout.exchange}")))
+//@RabbitListener(bindings=@QueueBinding(value=@Queue(value="${mq.config.queue.fanout.push}",autoDelete="true"),exchange=@Exchange(type=ExchangeTypes.FANOUT,value="${mq.config.fanout.exchange}")))
 public class ReceiverBByFanout {
 	@RabbitHandler
 	public void process(String mes){

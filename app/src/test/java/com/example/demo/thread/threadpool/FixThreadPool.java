@@ -6,5 +6,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 public class FixThreadPool {
-    public ExecutorService executor = Executors.newFixedThreadPool(5);
+    public static ExecutorService executor = Executors.newFixedThreadPool(5);
+
+    public static void main(String[] args){
+    }
 }
