@@ -1,0 +1,47 @@
+<html>
+	<head>
+		<title>demo</title>
+	</head>
+	<body>
+		<div>
+			<!-- <img alt="tishi" src="/image/ter.jpg"> -->
+			this is a test page
+			<input type="text" name="userName" id="userName"/>
+			<input type="text" name="passWord" id="passWord"/>
+			<button id="loginBtn" onclick="login()"></button>
+		</div>
+	</body>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/js/utils/security.js"></script>
+	<script>
+	function login(){
+		var uName = $("#userName").val(); //获取用户名
+		var pWord = $("#passWord").val(); //获取账号
+		 $.ajax({
+		        type: 'GET',
+		        url: "http://localhost:7070/" + "login/" + uName,
+		        async: true,
+		        dataType: "json",
+		        success: function (data) {
+		        	console.log(data);
+					var pwdKey = new RSAUtils.getKeyPair(data.data.exponent, "", data.data.modulus);
+					var reversedPwd = pWord.split("").reverse().join("");
+					var encrypedPwd = RSAUtils.encryptedString(pwdKey, reversedPwd);
+					console.log(encrypedPwd);
+					$.ajax({
+						type: "get",
+						url: "http://localhost:7070/login/"  + uName + "/" + encrypedPwd,
+						success: function (data) {
+							console.log(data);
+						},
+						error: function (result, status, xhr) {
+						}
+					});
+		        },
+		        error:function(result){
+		        	console.error(result);
+		        }
+		    });
+	}
+	</script>
+</html>
