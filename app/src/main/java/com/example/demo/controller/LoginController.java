@@ -1,8 +1,5 @@
 package com.example.demo.controller;
 
-import com.example.demo.common.util.RSAUtils;
-import com.example.demo.vo.ResultBean;
-import com.example.demo.vo.Users;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,16 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import com.example.demo.common.util.RSAUtils;
+import com.example.demo.vo.ResultBean;
+
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -53,7 +48,7 @@ public class LoginController {
 			RSAPrivateKey privateKey = (RSAPrivateKey) keys.get("private");
 			// 保存私钥到 redis，也可以保存到数据库
 //			boolean res = redisService.set(username, privateKey);
-			dataBase.put("username",privateKey);
+			dataBase.put(username,privateKey);
 			boolean res = true;
 			if (!res) {
 				throw new Exception("redis 保存失败");
