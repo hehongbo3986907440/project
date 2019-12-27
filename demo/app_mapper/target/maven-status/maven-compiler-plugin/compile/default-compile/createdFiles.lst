@@ -1,0 +1,6 @@
+com\example\mapper\usermapper\impl\UserMapperImpl.class
+com\example\mapper\usermapper\IUserMapper.class
+com\example\entity\org\OrgEntity.class
+com\example\entity\user\UserEntity.class
+com\example\mapper\orgmapper\impl\OrgMapperImpl.class
+com\example\mapper\orgmapper\IOrgMapper.class
